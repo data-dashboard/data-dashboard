@@ -1,0 +1,37 @@
+.container{
+    /* background-color: aquamarine; */
+    height: 5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2em;
+    margin-bottom: 1rem;
+}
+
+.heading{
+    font-size: 2em;
+}
+
+.right{
+    position: relative;
+    height: fit-content;
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rightTextContainer{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* white-space: nowrap; */
+}
+.rightImageContainer{
+    margin-left: 1.5rem;
+    position: relative;
+    height: 1.5rem;
+    width: 1.5rem;
+    aspect-ratio: 1/1;
+}
