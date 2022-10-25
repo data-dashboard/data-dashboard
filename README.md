@@ -7,6 +7,8 @@ Design 3
 Run the following commands in the terminal
 
 ```bash
+npm install
+
 npm run dev
 ```
 

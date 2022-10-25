@@ -58,9 +58,17 @@
 }
 
 .mainContent{
+  position: relative;
+  display: flex;
+  justify-content: center;
   padding: 2rem;
   margin-left: min(calc(15rem - 2rem),25%);
   min-height: 100vh;
+}
+
+.mainContentContainer{
+  width: 100%;
+  max-width: 2000px;
 }
 
 
@@ -75,6 +83,7 @@
 .col{
   position: relative;
   min-height: 6rem;
+  overflow: hidden;
 }
 
 .col:nth-child(1){

@@ -70,28 +70,29 @@ export default function Home() {
       </nav>
 
       <main className={styles.mainContent}>
-        <Intro />
-        <div className={styles.mainGrid}>
-          <div className={styles.col + " border"}>
-            <Image src="/1.jpg" alt="Data Graph" layout='fill'/>
-          </div>
-          <div className={styles.col + " border"}>
-            <Image src="/2.jpg" alt="Data Graph" layout='fill'/>
-          </div>
-          <div className={styles.col + " border"}>
-            <Image src="/3.jpg" alt="Data Graph" layout='fill'/>
-          </div>
-          <div className={styles.col + " border"}>
-            <Image src="/4.jpg" alt="Data Graph" layout='fill'/>
-          </div>
-          <div className={styles.col + " border"}>
-            <Image src="/5.jpg" alt="Data Graph" layout='fill'/>
-          </div>
-          <div className={styles.col + " border"}>
-            <Image src="/6.jpg" alt="Data Graph" layout='fill'/>
+        <div className={styles.mainContentContainer}>
+          <Intro />
+          <div className={styles.mainGrid}>
+            <div className={styles.col + " border"}>
+              <Image src="/1.jpg" alt="Data Graph" layout='fill'/>
+            </div>
+            <div className={styles.col + " border"}>
+              <Image src="/2.jpg" alt="Data Graph" layout='fill'/>
+            </div>
+            <div className={styles.col + " border"}>
+              <Image src="/3.jpg" alt="Data Graph" layout='fill'/>
+            </div>
+            <div className={styles.col + " border"}>
+              <Image src="/4.jpg" alt="Data Graph" layout='fill'/>
+            </div>
+            <div className={styles.col + " border"}>
+              <Image src="/5.jpg" alt="Data Graph" layout='fill'/>
+            </div>
+            <div className={styles.col + " border"}>
+              <Image src="/6.jpg" alt="Data Graph" layout='fill'/>
+            </div>
           </div>
         </div>
-        
       </main>
 
       
