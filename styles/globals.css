@@ -100,7 +100,6 @@ ol,ul{
 
 /* Globally shared border */
 .border{
-  padding:0.5rem;
   border-radius: 0.5rem;
   border: var(--border-color) 2px solid;
 }
