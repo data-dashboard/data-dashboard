@@ -1,11 +1,11 @@
 .container{
     /* background-color: aquamarine; */
-    height: 5em;
+    min-height: 5em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 2em;
-    margin-bottom: 1rem;
+    gap: .5rem;
+    margin-bottom: 1.5rem;
 }
 
 .heading{
@@ -20,6 +20,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding: .5rem 1rem; 
 }
 
 .rightTextContainer{
@@ -34,4 +35,12 @@
     height: 1.5rem;
     width: 1.5rem;
     aspect-ratio: 1/1;
+}
+
+@media only screen and (max-width: 700px) {
+
+    .container{
+        flex-direction: column;
+    }
+
 }

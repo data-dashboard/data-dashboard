@@ -8,30 +8,44 @@ import React, { useEffect, useRef, useState } from "react";
 import dynamic from 'next/dynamic'
 
 
-function P5Sketch({ ref1 }) {
+function Stats() {
   
-  const setup = (p5, canvasParentRef) => {
-    p5.createCanvas(ref1.current.clientWidth*1.083334, ref1.current.clientHeight).parent(canvasParentRef);
-    p5.noLoop();
-	};
+  return (
+    <div className={styles.stats}>
+      <div className={styles.statItem + " border"}>WIP</div>
+      <div className={styles.statItem + " border"}>WIP</div>
+      <div className={styles.statItem + " border"}>WIP</div>
+      <div className={styles.statItem + " border"}>WIP</div>
+      <div className={styles.statItem + " border"}>WIP</div>
+      <div className={styles.statItem + " border"}>WIP</div>
+    </div>
+  )
+}
 
-	const draw = (p5) => {
-    p5.background(255)
-    p5.fill(0);
-    p5.noStroke();
-    p5.circle(p5.width / 2, p5.height / 2, p5.min(p5.width / 2, p5.height / 2));
-	};
+// function P5Sketch({ ref1 }) {
+  
+//   const setup = (p5, canvasParentRef) => {
+//     p5.createCanvas(ref1.current.clientWidth*1.083334, ref1.current.clientHeight).parent(canvasParentRef);
+//     p5.noLoop();
+// 	};
 
-  if (typeof window !== 'undefined') {
-    const Sketch = dynamic(() => import('react-p5').then((mod) => mod.default), {
-      ssr: false,
-    })
-    return <Sketch setup={setup} draw={draw} />;
-  }
-  else {
-    return null;
-  }
-};
+// 	const draw = (p5) => {
+//     p5.background(255)
+//     p5.fill(0);
+//     p5.noStroke();
+//     p5.circle(p5.width / 2, p5.height / 2, p5.min(p5.width / 2, p5.height / 2));
+// 	};
+
+//   if (typeof window !== 'undefined') {
+//     const Sketch = dynamic(() => import('react-p5').then((mod) => mod.default), {
+//       ssr: false,
+//     })
+//     return <Sketch setup={setup} draw={draw} />;
+//   }
+//   else {
+//     return null;
+//   }
+// };
 
 function P5Sketch4({ ref1 }) {
   let space,initial,wid,n=3,mx=150,padding;
@@ -45,7 +59,19 @@ function P5Sketch4({ ref1 }) {
     
     padding = p5.width*0.05
     p5.noLoop();
-	};
+  };
+  
+  function windowResized(p5, event) {
+    // console.log(ref1.current)
+    initial = p5.width*0.2
+    space = (p5.width-initial)/(n);
+    wid = space*0.6
+    
+    padding = p5.width * 0.05
+    p5.resizeCanvas(ref1.current.clientWidth * 1.083334, ref1.current.clientHeight);
+
+    // draw(p5)
+  }
 
 	const draw = (p5) => {
     p5.background(255)
@@ -81,7 +107,7 @@ function P5Sketch4({ ref1 }) {
     const Sketch = dynamic(() => import('react-p5').then((mod) => mod.default), {
       ssr: false,
     })
-    return <Sketch setup={setup} draw={draw} />;
+    return <Sketch setup={setup} draw={draw} windowResized={windowResized} />;
   }
   else {
     return null;
@@ -94,7 +120,15 @@ function P5Sketch5({ ref1 }) {
     p5.createCanvas(ref1.current.clientWidth*1.083334, ref1.current.clientHeight).parent(canvasParentRef);
     wid = p5.width*0.5;
     p5.noLoop();
-	};
+  };
+  
+  function windowResized(p5, event) {
+    // console.log(ref1.current)
+    wid = p5.width * 0.5;
+    p5.resizeCanvas(ref1.current.clientWidth * 1.083334, ref1.current.clientHeight);
+    
+    // draw(p5)
+  }
 
 	const draw = (p5) => {
     p5.background(255);
@@ -114,7 +148,7 @@ function P5Sketch5({ ref1 }) {
     const Sketch = dynamic(() => import('react-p5').then((mod) => mod.default), {
       ssr: false,
     })
-    return <Sketch setup={setup} draw={draw} />;
+    return <Sketch setup={setup} draw={draw} windowResized={windowResized}/>;
   }
   else {
     return null;
@@ -132,9 +166,18 @@ function P5Sketch6({ ref1 }) {
     p5.noLoop();
 
   
-	};
+  };
+  
+  function windowResized(p5, event) {
+    // console.log(ref1.current)
+    wid = p5.width / (n * 2) * 0.5;
+    p5.resizeCanvas(ref1.current.clientWidth * 1.083334, ref1.current.clientHeight);
+    
+    // draw(p5);
+  }
 
 	const draw = (p5) => {
+    
     p5.background(255)
     p5.noStroke()
     p5.translate(p5.width/2,p5.height/2)
@@ -167,7 +210,7 @@ function P5Sketch6({ ref1 }) {
     const Sketch = dynamic(() => import('react-p5').then((mod) => mod.default), {
       ssr: false,
     })
-    return <Sketch setup={setup} draw={draw} />;
+    return <Sketch setup={setup} draw={draw} windowResized={windowResized}/>;
   }
   else {
     return null;
@@ -254,7 +297,7 @@ export default function Home() {
           <Intro />
           <div className={styles.mainGrid}>
             <div className={styles.col + " border"} ref={refArr[0]}>
-              <P5Sketch ref1={refArr[0]} />
+              <Stats />
             </div>
             <div className={styles.col + " border"} ref={refArr[1]}>
               <div className={styles.graphHeading}>
@@ -263,7 +306,7 @@ export default function Home() {
               <Image src="/2.jpg" layout="fill" alt="graph" />
             </div>
             <div className={styles.col + " border"} ref={refArr[2]}>
-              <P5Sketch ref1={refArr[2]} />
+              <h1>WIP</h1>
             </div>
             <div className={styles.col + " border"} ref={refArr[3]}>
               <div className={styles.graphHeading}>
