@@ -83,18 +83,21 @@
 
 .col{
   position: relative;
-  /* width: 100%; */
-  min-height: 8rem;
   height: 100%;
+  min-height: 5rem;
   overflow: hidden;
+  padding :1.5rem;
+  display: flex;
+  flex-direction: column;
 
-  display: grid;
-  place-items: center;
+  /* display: grid;
+  place-items: center; */
 }
 
 .col:nth-child(1){
   grid-row: 1/2;
   grid-column: 1/4;
+  height: min-content;
 }
 .col:nth-child(2){
   grid-row: 2/5;
@@ -118,12 +121,20 @@
 }
 
 .graphHeading{
-  display: none;
+  /* display: none; */
   color: rgba(15, 15, 15, 0.801);
   font-weight: 600;
   font-size: 1.2rem;
 }
 
+.sketchContainer{
+  display: grid;
+  place-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+}
 
 .stats{
   position: relative;
@@ -131,20 +142,50 @@
   height: 100%;
   grid-template-columns: repeat(6,1fr);
   grid-template-rows: 1fr;
+  
 }
 
 .statItem{
+  position: relative;
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.statLogoContainer{
+  position: relative;
   height: 100%;
   display: grid;
   place-items: center;
+  aspect-ratio: 1/1;
+}
+
+.statLogo{
+  display: grid;
+  place-items: center;
+  background-color: var(--tert-accent-color);
+  height: 80%;
+  border-radius: 100vh;
+  aspect-ratio: 1/1;
+  color: white;
+}
+
+.statText{
+  padding: 0 1rem;
+}
+.statHeading{
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.statSubtext{
+  font-size: 0.85rem;
+  color: rgb(112, 112, 112);
 }
 
 
-
-
-@media only screen and (max-width: 800px) {
-
+@media only screen and (max-width: 1350px) {
   .mainGrid{
     position: relative;
     display: grid;
@@ -178,9 +219,42 @@
     grid-column: 2/3;
   }
 
+  .statItem{
+    flex-direction: column;
+  }
+  .statLogoContainer{
+    display: none;
+  }
+  .statText{
+    padding: 0 1rem;
+  }
+}
+
+
+@media only screen and (max-width: 800px) {
+  /* sidenav is ded */
+  .sideNav{
+    display: none;
+  }
+  .mainContent{
+    margin-left: 0;
+  }
+  .mainGrid{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
   .stats {
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(2,1fr);
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .stats {
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(3,1fr);
   }
 }
 
