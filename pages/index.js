@@ -62,7 +62,7 @@ function Stats() {
         <div className={styles.statText}>
           <div className={styles.statHeading}>
             1,2{" "}
-            <span style={{ "font-size": "0.4em", display: "inline" }}>min</span>
+            <span style={{ fontSize: "0.4em", display: "inline" }}>min</span>
           </div>
           <div className={styles.statSubtext}>Avg Response Time</div>
         </div>
@@ -70,31 +70,6 @@ function Stats() {
     </div>
   );
 }
-
-// function P5Sketch({ ref1 }) {
-
-//   const setup = (p5, canvasParentRef) => {
-//     p5.createCanvas(ref1.current.clientWidth*1.083334, ref1.current.clientHeight).parent(canvasParentRef);
-//     p5.noLoop();
-// 	};
-
-// 	const draw = (p5) => {
-//     p5.background(255)
-//     p5.fill(0);
-//     p5.noStroke();
-//     p5.circle(p5.width / 2, p5.height / 2, p5.min(p5.width / 2, p5.height / 2));
-// 	};
-
-//   if (typeof window !== 'undefined') {
-//     const Sketch = dynamic(() => import('react-p5').then((mod) => mod.default), {
-//       ssr: false,
-//     })
-//     return <Sketch setup={setup} draw={draw} />;
-//   }
-//   else {
-//     return null;
-//   }
-// };
 
 function P5Sketch4({ ref1 }) {
   let space,
@@ -313,8 +288,68 @@ function Intro() {
           <div className="accent">View inbox</div>
         </div>
         <div className={introStyles.rightImageContainer}>
-          <Image src={"/notifs.jpg"} layout="fill" alt="notifs" />
+          <Image src={"/images/misc/notifs.jpg"} layout="fill" alt="notifs" />
         </div>
+      </div>
+    </div>
+  );
+}
+
+function Agents() {
+  const dataArr = [
+    { name: "Mansur Gerrard", chatNum: 10, email: "MansurGerrard@email.com" },
+    { name: "Ovtavia Sherly", chatNum: 8, email: "OvtaviaSherly@email.com" },
+    {
+      name: "Honathan Kerpiwe",
+      chatNum: 9,
+      email: "HonathanKerpiwe@email.com",
+    },
+    { name: "Elvina Seagull", chatNum: 7, email: "ElvinaSeagull@email.com" },
+    {
+      name: "Marni Mawar Indah",
+      chatNum: 4,
+      email: "MarniMawarIndah@email.com",
+    },
+    {
+      name: "Irvina Louissiana",
+      chatNum: 3,
+      email: "IrvinaLouissiana@email.com",
+    },
+    { name: "Jaydeep Patel", chatNum: 6, email: "macpe071202@gmail.com" },
+    { name: "Github Jaydeep-p", chatNum: 9, email: "github@email.com" },
+  ];
+  return (
+    <div className={styles.agentContainer}>
+      <div className={styles.agentList}>
+        {dataArr.map((data, idx) => {
+          return (
+            <div className={styles.agentInfo} key={idx}>
+              <div
+                id="profilePicture"
+                style={{ display: "grid", placeItems: "center" }}
+              >
+                <div className={styles.agentImage}>
+                  <Image
+                    src={`/images/people/${idx + 1}.jpeg`}
+                    layout="fill"
+                    style={{ "object-fit": "cover" }}
+                    alt="agent Image"
+                  />
+                </div>
+              </div>
+              <div className={styles.agentName}>
+                <div className={styles.agentNameMain + " bold"}>
+                  {data.name}
+                </div>
+                <div className={styles.agentNameSub}>{data.email}</div>
+              </div>
+              <div className={styles.agentChats + " bold"}>
+                {data.chatNum} Chats
+              </div>
+              <div className={styles.menuDots}>•••</div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -343,7 +378,11 @@ export default function Home() {
           <div className={styles.brand}>
             <div className={styles.brandLogo}>
               <div className={styles.brandLogoContainer}>
-                <Image src={"/logo.jpg"} layout="fill" alt="brand" />
+                <Image
+                  src={"/images/misc/logo.jpg"}
+                  layout="fill"
+                  alt="brand"
+                />
               </div>
               <div>whatcs</div>
             </div>
@@ -379,29 +418,82 @@ export default function Home() {
             <div className={styles.col + " border"}>
               <div className={styles.graphHeading}>Ticket Status</div>
               <div className={styles.sketchContainer} ref={refArr[1]}>
-                <Image src="/2.jpg" layout="fill" alt="graph" />
+                <Image src="/images/graphs/2.jpg" layout="fill" alt="graph" />
               </div>
             </div>
             <div className={styles.col + " border"} ref={refArr[2]}>
-              <h1>WIP</h1>
+              <div className={styles.graphHeading}>
+                Top Agent`s{" "}
+                <span className="accent" style={{ fontWeight: "100" }}>
+                  by chats
+                </span>
+              </div>
+              <div className={styles.sketchContainer} ref={refArr[3]}>
+                <Agents />
+              </div>
             </div>
             <div className={styles.col + " border"}>
               <div className={styles.graphHeading}>Total Messages</div>
-              <div className={styles.sketchContainer} ref={refArr[3]}>
-                <P5Sketch4 ref1={refArr[3]} />
+              <div
+                className={styles.sketchContainer}
+                ref={refArr[3]}
+                style={{ overflow: "hidden" }}
+              >
+                {/* <P5Sketch4 ref1={refArr[3]} /> */}
+                <iframe
+                  src="https://editor.p5js.org/lab071202/full/Tam5qhfDK"
+                  style={{
+                    position: "relative",
+                    width: "100%",
+                    height: "100%",
+                    border: "none",
+                    overflow: "hidden",
+                    top: "calc(-2.5rem - 2px)",
+                  }}
+                ></iframe>
               </div>
             </div>
             <div className={styles.col + " border"}>
               <div className={styles.graphHeading}>Message Volume</div>
-              <div className={styles.sketchContainer} ref={refArr[4]}>
-                <P5Sketch5 ref1={refArr[4]} />
+              <div
+                className={styles.sketchContainer}
+                ref={refArr[4]}
+                style={{ overflow: "hidden" }}
+              >
+                {/* <P5Sketch5 ref1={refArr[4]} /> */}
+                <iframe
+                  src="https://editor.p5js.org/lab071202/full/brFRMbb--"
+                  style={{
+                    position: "relative",
+                    width: "100%",
+                    height: "100%",
+                    border: "none",
+                    overflow: "hidden",
+                    top: "calc(-2.5rem - 2px)",
+                  }}
+                ></iframe>
               </div>
             </div>
             <div className={styles.col + " border"}>
               <div className={styles.graphHeading}>Rates</div>
 
-              <div className={styles.sketchContainer} ref={refArr[5]}>
-                <P5Sketch6 ref1={refArr[5]} />
+              <div
+                className={styles.sketchContainer}
+                ref={refArr[5]}
+                style={{ overflow: "hidden" }}
+              >
+                {/* <P5Sketch6 ref1={refArr[5]} /> */}
+                <iframe
+                  src="https://editor.p5js.org/lab071202/full/_SX1HOekJ"
+                  style={{
+                    position: "relative",
+                    width: "100%",
+                    height: "100%",
+                    border: "none",
+                    overflow: "hidden",
+                    top: "calc(-2.5rem - 2px)",
+                  }}
+                ></iframe>
               </div>
             </div>
           </div>

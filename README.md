@@ -22,8 +22,8 @@ CSS
 
 ## Note
 
-The graph data is hardcoded for now, but it can be easily brought in via an API call.
+My main focus on this assignment was layout and responsive design.
 
-p5.js is not the ideal choice for making graphs and I would prefer to use any graphing library instead.
+The graphs I made do not function well at lower resolutions.
 
-The graphs I made may or may not function well at extreme resolutions.
+P5.js is not the ideal choice for making graphs and I would prefer to use any graphing library instead, however due to time and design constraints, I'm making the graphs by hand in p5js and embedding the p5js sketch in the page.

@@ -14,7 +14,7 @@
   top: 0;
   left: 0;
   padding: 2rem;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 
@@ -76,7 +76,7 @@
   position: relative;
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  grid-template-rows: repeat(6,1fr);
+  grid-template-rows: 100% repeat(5,1fr);
 
   gap: 1.5rem;
 }
@@ -132,7 +132,8 @@
   place-items: center;
   position: relative;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1.61/1;
+  overflow-y: scroll;
   flex-grow: 1;
 }
 
@@ -142,13 +143,11 @@
   height: 100%;
   grid-template-columns: repeat(6,1fr);
   grid-template-rows: 1fr;
-  
 }
 
 .statItem{
   position: relative;
-  width: 100%;
-  height: 100%;
+  flex-grow: 1;
   display: flex;
   flex-direction: row;
 }
@@ -185,12 +184,64 @@
 }
 
 
+
+
+
+
+.agentContainer{
+  width: 100%;
+}
+
+.agentList{
+  display: flex;
+  flex-direction: column;
+}
+
+.agentInfo{
+  height: 100%;
+  width: 100%;
+  min-height: 5rem;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 4.5rem .6fr .3fr .1fr;
+}
+.agentImage{
+  position: relative;
+  overflow: hidden;
+  border-radius: 100vh;
+  height: 70%;
+  aspect-ratio: 1/1;
+}
+
+.agentName{
+  display: flex;
+  flex-direction: column;
+  margin: auto 1rem;
+  overflow: hidden;
+}
+
+
+.agentNameSub{
+  font-size: .8rem;
+  color: gray;
+}
+
+.agentChats{
+  display: grid;
+  overflow: hidden;
+  place-items: center;
+}
+.menuDots{
+  display: grid;
+  place-items: center;
+}
+
 @media only screen and (max-width: 1350px) {
   .mainGrid{
     position: relative;
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    grid-template-rows: repeat(8,1fr);
+    grid-template-rows: 100% repeat(7,1fr);
     gap: 1.5rem;
   }
 
@@ -232,12 +283,10 @@
 
 
 @media only screen and (max-width: 800px) {
-  /* sidenav is ded */
-  .sideNav{
-    display: none;
-  }
+  
   .mainContent{
     margin-left: 0;
+    margin-top: 4rem;
   }
   .mainGrid{
     position: relative;
@@ -249,12 +298,29 @@
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(2,1fr);
   }
+
+  .sideNav{
+    background-color: white;
+    flex-direction: row;
+    overflow:hidden;
+    width: 100%;
+    height: 5rem;
+  }
+
+  .sideNavTop{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .navList{
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 500px) {
   .stats {
     grid-template-columns: repeat(2,1fr);
-    grid-template-rows: repeat(3,1fr);
+    grid-template-rows: 100% repeat(2,1fr);
   }
 }
 
