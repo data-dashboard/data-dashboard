@@ -17,6 +17,10 @@
   /* overflow-x: hidden; */
 }
 
+.navIcon{
+  margin: 0.4rem 0.5rem;
+}
+
 
 .brand{
   height: 5em;
