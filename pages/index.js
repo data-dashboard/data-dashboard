@@ -21,6 +21,7 @@ import {
   faBullhorn,
   faUserGroup,
   faCirclePlay,
+  faCircle,
 } from "@fortawesome/free-solid-svg-icons";
 
 function Stats() {
@@ -410,11 +411,10 @@ export default function Home() {
           <div className={styles.brand}>
             <div className={styles.brandLogo}>
               <div className={styles.brandLogoContainer}>
-                <Image
-                  src={"/images/misc/logo.jpg"}
-                  layout="fill"
-                  alt="brand"
-                />
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
               </div>
               <div>whatcs</div>
             </div>
@@ -471,11 +471,40 @@ export default function Home() {
 
         <div className={styles.sideNavBottom}>
           <div>Connected Number</div>
-          <div className="accent">+1234 5678 1234</div>
-
-          <div>
-            <h3>Octavia Sherly</h3>
-            <div>octavia@gmail.com</div>
+          <div
+            className="accent"
+            style={{ display: "flex", alignItems: "center" }}
+          >
+            +1234 5678 1234&nbsp;&nbsp;&nbsp;
+            <FontAwesomeIcon icon={faCircle} style={{ fontSize: "0.5em" }} />
+          </div>
+          <div className={styles.navBottomhr}> </div>
+          <div style={{ display: "flex", marginTop: "1rem" }}>
+            <div
+              style={{
+                position: "relative",
+                height: "2rem",
+                aspectRatio: "1/1",
+                borderRadius: "100vh",
+                overflow: "hidden",
+                margin: "auto 0",
+              }}
+            >
+              <Image
+                src={"/images/people/7.jpeg"}
+                layout="fill"
+                alt="image"
+                style={{ "object-fit": "cover" }}
+              />
+            </div>
+            <div style={{ marginLeft: "0.3rem" }}>
+              <div className="bold" style={{ fontSize: "1.1rem" }}>
+                Octavia Sherly
+              </div>
+              <div style={{ color: "rgb(100, 100, 100)" }}>
+                octavia@gmail.com
+              </div>
+            </div>
           </div>
         </div>
       </nav>
