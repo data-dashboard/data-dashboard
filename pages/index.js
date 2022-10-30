@@ -518,8 +518,16 @@ export default function Home() {
             </div>
             <div className={styles.col + " border"}>
               <div className={styles.graphHeading}>Ticket Status</div>
-              <div className={styles.sketchContainer} ref={refArr[1]}>
-                <Image src="/images/graphs/2.jpg" layout="fill" alt="graph" />
+              <div
+                className={styles.sketchContainer}
+                ref={refArr[1]}
+                style={{ aspectRatio: "2/1" }}
+              >
+                <Image
+                  src="/images/graphs/dummy.png"
+                  layout="fill"
+                  alt="graph"
+                />
               </div>
             </div>
             <div className={styles.col + " border"} ref={refArr[2]}>
